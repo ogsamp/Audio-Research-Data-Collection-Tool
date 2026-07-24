@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V300 Enterprise Audio Research Tool</title>
+<meta name="theme-color" content="#0B5CAD">
+<meta name="description" content="Enterprise Audio Research Data Collection System">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<div id="app">
+
+<aside id="sidebar">
+<div class="logo">
+<h2>V300</h2>
+<span>Enterprise Edition</span>
+</div>
+
+<nav>
+<button class="menu active" data-page="dashboard">Dashboard</button>
+<button class="menu" data-page="projects">Research Projects</button>
+<button class="menu" data-page="questionnaire">Questionnaire Builder</button>
+<button class="menu" data-page="respondents">Respondents</button>
+<button class="menu" data-page="analytics">Analytics</button>
+<button class="menu" data-page="reports">Reports</button>
+<button class="menu" data-page="settings">Settings</button>
+</nav>
+</aside>
+
+<main id="main">
+
+<header>
+<div>
+<h1 id="pageTitle">Dashboard</h1>
+<p>Audio Research Tool Enterprise</p>
+</div>
+
+<div>
+<button id="btnTheme">Theme</button>
+<button id="btnLogout">Logout</button>
+</div>
+</header>
+
+<section id="dashboardPage" class="page">
+<div class="cards">
+<div class="card"><h3>Projects</h3><h1 id="totalProjects">0</h1></div>
+<div class="card"><h3>Questionnaires</h3><h1 id="totalQuestionnaires">0</h1></div>
+<div class="card"><h3>Respondents</h3><h1 id="totalRespondents">0</h1></div>
+<div class="card"><h3>Responses</h3><h1 id="totalResponses">0</h1></div>
+</div>
+</section>
+
+<section id="projectsPage" class="page hidden">
+<div class="toolbar">
+<button id="btnNewProject">+ New Project</button>
+</div>
+<div id="projectList"></div>
+</section>
+
+<section id="questionnairePage" class="page hidden">
+<div class="toolbar">
+<button id="btnAddQuestion">+ Add Question</button>
+<button id="btnPublish">Publish Survey</button>
+</div>
+<div id="questionList"></div>
+</section>
+
+<section id="respondentsPage" class="page hidden">
+<div id="respondentList"></div>
+</section>
+
+<section id="analyticsPage" class="page hidden">
+<canvas id="analyticsChart"></canvas>
+</section>
+
+<section id="reportsPage" class="page hidden">
+<button id="btnGenerateReport">Generate Report</button>
+<div id="reportArea"></div>
+</section>
+
+<section id="settingsPage" class="page hidden">
+<table>
+<tr><td>Researcher PIN</td><td><input id="researcherPIN" type="password"></td></tr>
+<tr><td>Google Apps Script URL</td><td><input id="scriptURL" type="text"></td></tr>
+<tr><td>Google Drive Folder</td><td><input id="driveFolder" type="text"></td></tr>
+<tr><td>Auto Transcription</td><td><input id="autoTranscription" type="checkbox"></td></tr>
+</table>
+<br>
+<button id="btnSaveSettings">Save Settings</button>
+</section>
+
+</main>
+</div>
+
+<div id="loginDialog">
+<div id="loginBox">
+<h2>V300 Enterprise</h2>
+<p>Researcher Login</p>
+<input id="loginPIN" type="password" placeholder="Enter PIN">
+<button id="btnLogin">Login</button>
+</div>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

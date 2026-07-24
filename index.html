@@ -1,49 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>V301 Enterprise Research Platform</title>
-<link rel="icon" href="assets/favicon.ico">
-<link rel="stylesheet" href="css/app.css">
-<link rel="stylesheet" href="css/dashboard.css">
-<link rel="stylesheet" href="css/forms.css">
-<link rel="stylesheet" href="css/tables.css">
-<link rel="stylesheet" href="css/modal.css">
-<link rel="stylesheet" href="css/reports.css">
-<link rel="stylesheet" href="css/responsive.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b4b9e">
+  <title>V301 Enterprise Research Platform</title>
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-<div id="loadingScreen">
-  <div class="loadingLogo">
-    <img src="assets/logo.png" alt="Logo">
-    <h1>V301 Enterprise</h1>
-    <p>Preparing Research Workspace...</p>
-    <div class="loadingBar"><div id="loadingProgress"></div></div>
+  <div id="loadingScreen" aria-live="polite">
+    <div class="loading-card">
+      <div class="brand-mark">V301</div>
+      <h1>V301 Enterprise</h1>
+      <p>Preparing Research Workspace...</p>
+      <div class="loading-track"><div class="loading-bar"></div></div>
+    </div>
   </div>
-</div>
 
-<div id="application">
-<header id="topBar">
-<div class="topLeft">
-<button id="menuButton">☰</button>
-<h2>Audio Research Enterprise</h2>
-</div>
+  <div id="application" class="app-shell" hidden>
+    <header class="topbar">
+      <div class="topbar-left">
+        <button id="menuButton" class="icon-button" aria-label="Toggle menu">☰</button>
+        <div>
+          <strong>Audio Research Enterprise</strong>
+          <small id="currentProjectLabel">No active project</small>
+        </div>
+      </div>
 
-<div class="topCenter">
-<input type="search" id="globalSearch"
-placeholder="Search projects, questionnaires, respondents...">
-</div>
+      <div class="topbar-center">
+        <input id="globalSearch" type="search" placeholder="Search projects, questionnaires, respondents...">
+      </div>
 
-<div class="topRight">
-<span id="syncStatus">Offline</span>
-<button id="themeButton">Theme</button>
-<button id="notificationButton">Notifications</button>
-<button id="logoutButton">Logout</button>
-</div>
-</header>
+      <div class="topbar-right">
+        <span id="syncStatus" class="status-pill">Local mode</span>
+        <button id="themeButton" class="button button-secondary">Theme</button>
+        <button id="logoutButton" class="button button-danger">Logout</button>
+      </div>
+    </header>
 
-<!-- End of V301.0.1A-2 -->
-</div>
+    <div class="layout">
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-mark small">V301</div>
+          <div>
+            <h2>Enterprise</h2>
+            <span>Version 301.0.0</span>
+          </div>
+        </div>
+
+        <nav id="mainMenu" class="menu" aria-label="Main navigation">
+          <button class="nav-item active" data-module="dashboard">Dashboard</button>
+          <button class="nav-item" data-module="projects">Research Projects</button>
+          <button class="nav-item" data-module="questionnaires">Questionnaire Builder</button>
+          <button class="nav-item" data-module="respondents">Respondents</button>
+          <button class="nav-item" data-module="analytics">Analytics</button>
+          <button class="nav-item" data-module="reports">Reports</button>
+          <button class="nav-item" data-module="settings">Settings</button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span id="networkState">Checking network...</span>
+        </div>
+      </aside>
+
+      <main id="workspace" class="workspace">
+        <section class="workspace-heading">
+          <div>
+            <h1 id="moduleTitle">Dashboard</h1>
+            <p id="moduleDescription">Enterprise research management overview.</p>
+          </div>
+          <button id="primaryAction" class="button button-primary">New Project</button>
+        </section>
+
+        <section id="workspaceContent"></section>
+      </main>
+    </div>
+
+    <footer class="statusbar">
+      <span id="footerNetwork">Network: checking</span>
+      <span id="footerStorage">Storage: ready</span>
+      <span id="footerVersion">V301 Starter</span>
+    </footer>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="js/store.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
